@@ -33,7 +33,7 @@ router.addRoute({
 ```
 To "navigate" to a specific route you just need to provide the router with the name of the route you want
 ```js
-router.go('employee');
+var returnedActionsData = router.go('employee'); //Note: executed actions are returned from go();
 ```
 
 For a complete example see the Examples section, or for more information see the Specs section.
