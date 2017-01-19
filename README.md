@@ -8,12 +8,12 @@ URLessRouter is a way to manage pages, and content without updating the URL.  It
 
 ## Quick Guide
 To get started with URLessRouter you need to have an empty html element with a unique id.
-```
-<div id="routerView"></div>` *Note: it must be empty because it's contents will be replaced
+```js
+<div id="routerView"></div> //Note: it must be empty because it's contents will be replaced
 ```
 Next you need to instantiate URLessRouter and bind it to the element you created
 ```js
-const router = new URLessRouter('routerView');`*Note: there can be multiple routers per page, but they cannot be nested.
+const router = new URLessRouter('routerView'); //Note: there can be multiple routers per page, but they cannot be nested.
 ```
 Now that the `router` has been initialize it's time to add routes.
 ```js
