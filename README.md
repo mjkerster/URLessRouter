@@ -6,15 +6,17 @@ URLessRouter is a way to manage pages, and content without updating the URL.  It
 ## Install
 ...Coming Soon...
 
-## How to use
+## Quick Guide
 To get started with URLessRouter you need to have an empty html element with a unique id.
-`<div id="routerView"></div>` *Note: it must be empty because it's contents will be replaced
-
+```
+<div id="routerView"></div>` *Note: it must be empty because it's contents will be replaced
+```
 Next you need to instantiate URLessRouter and bind it to the element you created
-`const router = new URLessRouter('routerView');`*Note: there can be multiple routers per page, but they cannot be nested.
-
-Now that the `router` has been initialize it's time to add routes. 
-```javascript
+```js
+const router = new URLessRouter('routerView');`*Note: there can be multiple routers per page, but they cannot be nested.
+```
+Now that the `router` has been initialize it's time to add routes.
+```js
 router.addRoute({
   path: '/employee/{:id}',
   name: 'employee',
@@ -29,6 +31,15 @@ router.addRoute({
   },
 });
 ```
+To "navigate" to a specific route you just need to provide the router with the name of the route you want
+```js
+router.go('employee');
+```
+
+For a complete example see the Examples section, or for more information see the Specs section.
+
+##Specs
+...Coming Soon...
 
 ## Examples
 ...Coming Soon...
