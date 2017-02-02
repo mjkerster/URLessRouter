@@ -41,5 +41,32 @@ For a complete example see the Examples section, or for more information see the
 ##Specs
 ...Coming Soon...
 
+### `URLessRouter(string)`
+
+When invoked with the `new` keyword a new URLessRouter is created and bound the the provided HTML element. 
+  
+#### Parameter
+
+string: ID of the HTML element that the router will bind to.
+  
+***
+
+###  URLessRouter Prototypes
+
+#### `addRoute(object)`
+
+Adds a route to the router.  One or more routes can be added to the router.
+
+##### Parameter
+
+#### `goTo(string, object)`
+
+This is used to navigate to a route by passing the name of the route, and parameters for the route
+
+##### Parameters
+
+string: name of the route to navigate to.  The name must match the name set in the oject passed to `addRoute`
+object: contains the parameters that should be passed to the `actions` of the route.
+
 ## Examples
 ...Coming Soon...
