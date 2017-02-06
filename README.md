@@ -59,14 +59,26 @@ Adds a route to the router.  One or more routes can be added to the router.
 
 ##### Parameter
 
+*object*: contains all parameters used when defining a route.
+
+`{
+  path: "This field isn't actually used for anything.  It can be set for reabability when defining and structuring routes."
+  name: "Name of the route that is being defined.  This must be unique and is used when navigating to a route. See goTo()"
+  template: "String of html code that will serve as the template for the route. If templateURL is defined then it will be used instead of tempalte."
+  templateUrl: "Location of the html file to be loaded as the template for the route."
+  actions: "Object containing functions to be executed for the route."
+}`
+  
+
 #### `goTo(string, object)`
 
 This is used to navigate to a route by passing the name of the route, and parameters for the route
 
 ##### Parameters
 
-string: name of the route to navigate to.  The name must match the name set in the oject passed to `addRoute`
-object: contains the parameters that should be passed to the `actions` of the route.
+*string*: name of the route to navigate to.  The name must match the name set in the oject passed to `addRoute`
+
+*object*: contains the parameters that should be passed to the `actions` of the route.
 
 ## Examples
 ...Coming Soon...
