@@ -61,13 +61,13 @@ Adds a route to the router.  One or more routes can be added to the router.
 
 *object*: contains all parameters used when defining a route.
 
-`{
+```javascript{
   path: "This field isn't actually used for anything.  It can be set for reabability when defining and structuring routes."
   name: "Name of the route that is being defined.  This must be unique and is used when navigating to a route. See goTo()"
   template: "String of html code that will serve as the template for the route. If templateURL is defined then it will be used instead of tempalte."
   templateUrl: "Location of the html file to be loaded as the template for the route."
   actions: "Object containing functions to be executed for the route."
-}`
+}```
   
 
 #### `goTo(string, object)`
