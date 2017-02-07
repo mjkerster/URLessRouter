@@ -46,7 +46,7 @@ When invoked with the `new` keyword a new URLessRouter is created and bound the 
   
 #### Argument
 
-htmlElementId: ID of the HTML element that the router will bind to.
+*htmlElementId*: ID of the HTML element that the router will bind to.
   
 ***
 
