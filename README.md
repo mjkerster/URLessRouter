@@ -15,7 +15,7 @@ Next you need to instantiate URLessRouter and bind it to the element you created
 ```js
 const router = new URLessRouter('routerView'); //Note: there can be multiple routers per page, but they cannot be nested.
 ```
-Now that the `router` has been initialize it's time to add routes.
+Now that the `router` has been initialize, it's time to add routes.
 ```js
 router.addRoute({
   path: '/employee/{:id}',
@@ -33,54 +33,54 @@ router.addRoute({
 ```
 To "navigate" to a specific route you just need to provide the router with the name of the route you want
 ```js
-var returnedActionsData = router.go('employee'); //Note: executed actions are returned from go();
+var returnedActionsData = router.goTo('employee'); //Note: executed actions are returned from go();
 ```
 
 For a complete example see the Examples section, or for more information see the Specs section.
 
 ##Specs
-...Coming Soon...
 
-### `URLessRouter(string)`
+### `URLessRouter(htmlElementId)`
 
-When invoked with the `new` keyword a new URLessRouter is created and bound the the provided HTML element. 
+When invoked with the `new` keyword a new URLessRouter is created and bound the the provided HTML element.
   
-#### Parameter
+#### Argument
 
-string: ID of the HTML element that the router will bind to.
+htmlElementId: ID of the HTML element that the router will bind to.
   
 ***
 
 ###  URLessRouter Prototypes
 
-#### `addRoute(object)`
+#### `addRoute(routeObject)`
 
 Adds a route to the router.  One or more routes can be added to the router.
 
-##### Parameter
+##### Argument
 
-*object*: contains all parameters used when defining a route.
+*routeObject*: contains all parameters used when defining a route. See below for details.
 
-```javascript
-{
-  path: "This field isn't actually used for anything.  It can be set for reabability when defining and structuring routes."
-  name: "Name of the route that is being defined.  This must be unique and is used when navigating to a route. See goTo()"
-  template: "String of html code that will serve as the template for the route. If templateURL is defined then it will be used instead of tempalte."
-  templateUrl: "Location of the html file to be loaded as the template for the route."
-  actions: "Object containing functions to be executed for the route."
-}
-```
-  
+| Attribute   | Description |
+|-------------|-------------|
+| path        | This field has no real purpose.  It can be set for reabability when defining and structuring routes. This attribute is NOT required.|
+| name        | Name of the route that is being defined.  This must be unique and is used when navigating to a route. See `goTo()`|
+| template    | String of html code that will serve as the template for the route. If templateURL is defined then it will be used instead of template.|
+| templateUrl | Location of the html file to be loaded as the template for the route.|
+| actions     | Object containing functions to be executed for the route.|
 
-#### `goTo(string, object)`
+#### `goTo(routeName, params)`
 
-This is used to navigate to a route by passing the name of the route, and parameters for the route
+This is used to navigate to a route by passing the name of the route, and parameters for the route.
 
-##### Parameters
+##### Arguments
 
-*string*: name of the route to navigate to.  The name must match the name set in the oject passed to `addRoute`
+*routeName*: name of the route to navigate to.  The name must match the name that was set in the object passed to `addRoute`
 
-*object*: contains the parameters that should be passed to the `actions` of the route.
+*params*: contains the parameters that should be passed to the `actions` of the route. This is suppose to mimic URL parameters.
+
+##### Returns
+
+*object*: An object containing the results of executed `actions`.
 
 ## Examples
 ...Coming Soon...
