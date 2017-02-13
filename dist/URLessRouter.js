@@ -58,26 +58,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	const HTTPClient = __webpack_require__(2);
 
 	function URLessRouter(elementId) {
-	  let rootElement, routes;
-	  routes = {};
+	  this.routes = {};
 
 	  if (elementId) {
-	    rootElement = document.getElementById(elementId);
+	    this.rootElement = document.getElementById(elementId);
 	  }
-
-	  function addRoute(routeObject) {
-	    routes[routeObject.name] = new Route(routeObject, new HTTPClient());
-	  }
-
-	  function goTo(name, paramObject) {
-	    rootElement.innerHTML = routes[name].go(name);
-	  }
-
-	  return {
-	    addRoute: addRoute,
-	    goTo: goTo,
-	  };
 	}
+
+	URLessRouter.prototype.addRoute = (routeObject) => {
+	  this.routes[routeObject.name] = new Route(routeObject, new HTTPClient());
+	};
+
+	URLessRouter.prototype.goTo = (name, params) => {
+	  this.routes[name].go().then((template) => {
+	    this.rootElement.innerHTML = template;
+	  });
+
+	  if (!params) {
+	    params = {};
+	  }
+
+	  return this.routes[name].getActions(params);
+	};
+
+	// Switch all methods to arrow function syntax
 
 	module.exports = URLessRouter;
 
@@ -87,8 +91,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	function Route(routeObject, httpClient) {
-	  let path, name, template, templatePath, httpC;
-
 	  this.httpC = httpClient;
 
 	  for (const key in routeObject) {
@@ -104,18 +106,36 @@ return /******/ (function(modules) { // webpackBootstrap
 	    else if (key === 'templatePath') {
 	      this.templatePath = routeObject[key];
 	    }
+	    else if (key === 'actions') {
+	      this.actions = routeObject[key];
+	    }
 	  }
 	}
 
-	Route.prototype.go = function goProto(name) {
-	  // TODO: This isn't finished
-	  if (this.templatePath) {
-	    return this.httpC.get(this.templatePath).then(function success(response) {
-	      return response;
-	    });
-	  } else {
-	    return this.template;
+	Route.prototype.go = () => {
+
+	  return new Promise((resolve, reject) => {
+	    if (this.templatePath) {
+	      this.httpC.get(this.templatePath, (template) => {
+	        resolve(template);
+	      });
+	    }
+	    else {
+	      resolve(this.template);
+	    }
+	  });
+	};
+
+	Route.prototype.getActions = (params) => {
+	  const executedActionsObject = {};
+
+	  for (const action in this.actions) {
+	    if (this.actions.hasOwnProperty(action)) {
+	      executedActionsObject[action] = this.actions[action](params);
+	    }
 	  }
+
+	  return executedActionsObject;
 	};
 
 	module.exports = Route;
@@ -127,19 +147,17 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function HTTPClient() {}
 
-	HTTPClient.prototype.get = function httpGet(aUrl) {
-	  return new Promise(function resolver(resolve, reject){
-	    const anHttpRequest = new XMLHttpRequest();
+	HTTPClient.prototype.get = (aUrl, callback) => {
+	  const anHttpRequest = new XMLHttpRequest();
 
-	    anHttpRequest.onreadystatechange = function stateChange() {
-	      if (anHttpRequest.readyState === 4 && anHttpRequest.status === 200) {
-	        resolve(anHttpRequest.responseText);
-	      }
+	  anHttpRequest.onreadystatechange = () => {
+	    if (anHttpRequest.readyState === 4 && anHttpRequest.status === 200) {
+	      callback(anHttpRequest.responseText);
+	    }
+	  };
 
-	      anHttpRequest.open('GET', aUrl, true);
-	      anHttpRequest.send(null);
-	    };
-	  });
+	  anHttpRequest.open('GET', aUrl, true);
+	  anHttpRequest.send(null);
 	};
 
 	module.exports = HTTPClient;

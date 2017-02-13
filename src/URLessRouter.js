@@ -25,8 +25,12 @@ URLessRouter.prototype.goTo = function goToProto(name, params) {
   return this.routes[name].getActions(params);
 };
 
-// Add Parameter method to URLessRouter
+// Flag action to only be executed once
 
-// Switch all methods to arrow function syntax
+// Built in next function that goes to the next route ?? Might be dumb since it only works with zero param routes
+
+// Built in auto increment parameter function ??
+
+// Update to use ASYNC methods
 
 module.exports = URLessRouter;

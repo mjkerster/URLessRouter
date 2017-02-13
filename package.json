@@ -1,20 +1,33 @@
 {
   "name": "urlessrouter",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Application router that does not use the browsers url",
   "main": "URLessRouter.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start karma.conf.js",
     "start": "webpack --config webpack.config.js --progress --watch",
     "dev": "webpack-dev-server --open --inline"
   },
   "keywords": [
-    "router"
+    "router",
+    "vanilla"
   ],
   "author": "Matthew Kerster",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:mjkerster/URLessRouter.git"
+  },
   "devDependencies": {
     "eslint": "^3.12.2",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-babel-preprocessor": "^6.0.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-webpack": "^2.0.2",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   }
