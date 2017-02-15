@@ -4,7 +4,8 @@
 URLessRouter is a way to manage pages, and content without updating the URL.  It is designed to work like popular framework routers, but it does not modify or use the browser's url, window.location, anchor tags, etc.  An example use case would be to control the content and flow of a wizard.
 
 ## Install
-...Coming Soon...
+
+`npm install urlessrouter` or download `URLessRouter.js` from the `dist` directory.  This library can be included using module loaders or including the script in HTML.
 
 ## Quick Guide
 To get started with URLessRouter you need to have an empty html element with a unique id.
