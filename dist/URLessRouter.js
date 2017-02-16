@@ -65,11 +65,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
-	URLessRouter.prototype.addRoute = (routeObject) => {
+	URLessRouter.prototype.addRoute = function addRouteProto(routeObject) {
 	  this.routes[routeObject.name] = new Route(routeObject, new HTTPClient());
 	};
 
-	URLessRouter.prototype.goTo = (name, params) => {
+	URLessRouter.prototype.goTo = function goToProto(name, params) {
 	  this.routes[name].go().then((template) => {
 	    this.rootElement.innerHTML = template;
 	  });
@@ -81,7 +81,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return this.routes[name].getActions(params);
 	};
 
-	// Switch all methods to arrow function syntax
+	// Flag action to only be executed once
+
+	// Built in next function that goes to the next route ?? Might be dumb since it only works with zero param routes
+
+	// Built in auto increment parameter function ??
+
+	// Update to use ASYNC methods
 
 	module.exports = URLessRouter;
 
@@ -112,7 +118,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 
-	Route.prototype.go = () => {
+	Route.prototype.go = function goProto() {
 
 	  return new Promise((resolve, reject) => {
 	    if (this.templatePath) {
@@ -126,7 +132,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	};
 
-	Route.prototype.getActions = (params) => {
+	Route.prototype.getActions = function getActionsProto(params) {
 	  const executedActionsObject = {};
 
 	  for (const action in this.actions) {
@@ -138,6 +144,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return executedActionsObject;
 	};
 
+	Route.prototype.hasActions = function hasActionsProto() {
+	  return (this.actions);
+	};
+
 	module.exports = Route;
 
 
@@ -147,10 +157,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function HTTPClient() {}
 
-	HTTPClient.prototype.get = (aUrl, callback) => {
+	HTTPClient.prototype.get = function httpGet(aUrl, callback) {
 	  const anHttpRequest = new XMLHttpRequest();
 
-	  anHttpRequest.onreadystatechange = () => {
+	  anHttpRequest.onreadystatechange = function stateChange() {
 	    if (anHttpRequest.readyState === 4 && anHttpRequest.status === 200) {
 	      callback(anHttpRequest.responseText);
 	    }

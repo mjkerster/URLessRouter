@@ -5,8 +5,7 @@
   "main": "URLessRouter.js",
   "scripts": {
     "test": "karma start karma.conf.js",
-    "start": "webpack --config webpack.config.js --progress --watch",
-    "dev": "webpack-dev-server --open --inline"
+    "start": "webpack --config webpack.config.js --progress --watch"
   },
   "keywords": [
     "router",
@@ -28,7 +27,6 @@
     "karma-jasmine": "^1.1.0",
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-webpack": "^2.0.2",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^1.14.0"
   }
 }
