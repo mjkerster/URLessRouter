@@ -1,7 +1,11 @@
 # URLessRouter
 
 ## Overview
-URLessRouter is a way to manage pages, and content without updating the URL.  It is designed to work like popular framework routers, but it does not modify or use the browser's url, window.location, anchor tags, etc.  An example use case would be to control the content and flow of a wizard.
+URLessRouter is a way to manage pages, and content without updating the URL.  It is designed to work like popular framework routers, but it does not modify or use the browser's url, window.location, anchor tags, etc.  
+
+URLessRouter was developed with plain Javascript and does not depend on any other library.  This makes it easy to use with almost any Javascript famework.  It's also extremely small in size so you can use it without fear of adding bloat to your application. 
+
+An example use case for URLessRouter would be to control the content and flow of a wizard.
 
 ## Install
 
@@ -86,4 +90,4 @@ This is used to navigate to a route by passing the name of the route, and parame
 ## Examples
 [LIVE DEMO](https://urlessrouterdemo-dde19.firebaseapp.com/)
 
-Code for the live demo can be found [HERE](https://github.com/mjkerster/URLessRouterDemo);
+Code for the live demo can be found [HERE](https://github.com/mjkerster/URLessRouterDemo/blob/master/src/app.js)
