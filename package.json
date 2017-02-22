@@ -1,6 +1,6 @@
 {
   "name": "urlessrouter",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Application router that does not use the browsers url",
   "main": "URLessRouter.js",
   "scripts": {
