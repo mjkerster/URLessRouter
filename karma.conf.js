@@ -15,7 +15,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/*.js',
       'test/*.test.js'
     ],
 
@@ -90,5 +89,9 @@ module.exports = function(config) {
         flags: ['--no-sandbox']
       }
     }
-  })
+  });
+
+  if(process.env.TRAVIS){
+    config.browsers = ['Chrome_travis_ci'];
+    }
 }
