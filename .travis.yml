@@ -1,0 +1,7 @@
+language: node_js
+before_script: 
+    -npm install jasmine-core
+    -npm install karma
+    -npm install karma-chrome-launcher
+    -npm install karma-jasmine
+    -npm install karma-webpacks
