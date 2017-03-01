@@ -12,9 +12,7 @@ describe('URLessRouter Tests', function() {
   });
 
   it('should not have any routes when invoked', function(){
-    var routesMap = new Map(Object.entries(router.routes));
-
-    expect(routesMap.size).toEqual(0);
+    expect(router.routes).toEqual({});
   });
 
   it('should add a route', function(){
