@@ -24,15 +24,10 @@ module.exports = function(config) {
     ],
 
     webpack: {
-      entry: './src/URLessRouter.js',
+      entry: './test/URLessRouter.test.js',
       output: {
-        path: __dirname + '/dist',
-        filename: 'URLessRouter.js',
-        libraryTarget: 'umd',
-        library: 'URLessRouter'
-      },
-      devServer: {
-        contentBase: __dirname + "/dist"
+        path: __dirname + '/dist/test',
+        filename: 'URLessRouter.test.js'
       },
         module: {
             preLoaders: [
