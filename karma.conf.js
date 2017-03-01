@@ -24,6 +24,16 @@ module.exports = function(config) {
     ],
 
     webpack: {
+      entry: './src/URLessRouter.js',
+      output: {
+        path: __dirname + '/dist',
+        filename: 'URLessRouter.js',
+        libraryTarget: 'umd',
+        library: 'URLessRouter'
+      },
+      devServer: {
+        contentBase: __dirname + "/dist"
+      },
         module: {
             preLoaders: [
                 // instrument only testing sources with Istanbul

@@ -1,4 +1,4 @@
-var URLessRouter = require('../src/URLessRouter');
+var URLessRouter = require('../dist/URLessRouter');
 
 describe('URLessRouter Tests', function() {
   var router;
