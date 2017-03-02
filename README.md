@@ -1,4 +1,4 @@
-# URLessRouter
+# URLessRouter [![Build Status](https://travis-ci.org/mjkerster/URLessRouter.svg?branch=master)](https://travis-ci.org/mjkerster/URLessRouter)
 
 ## Overview
 URLessRouter is a way to manage pages, and content without updating the URL.  It is designed to work like popular framework routers, but it does not modify or use the browser's url, window.location, anchor tags, etc.  
