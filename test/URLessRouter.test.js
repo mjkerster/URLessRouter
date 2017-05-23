@@ -27,5 +27,22 @@ describe('URLessRouter Tests', function() {
     expect(router.routes['main'].template).toEqual('<div>main</div>');
   });
 
+  it('should make a request for a template and return html', function(){
+    router.addRoute({
+      path:'main',
+      name:'main',
+      templatePath: '/path/main.html',
+      actions: {
+        res: function(){
+          return 'test data';
+        }
+      }
+    });
+
+    var returnedData = router.goTo('main');
+
+    console.log(returnedData)
+    expect(returnedData.res).toEqual('test data');
+  });
 
 });
